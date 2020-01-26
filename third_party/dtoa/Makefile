@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# Simplied Makefile to build the openwall md5 library for libxlsxwriter.
+# Simplied Makefile to build the emyg_dtoa library for libxlsxwriter.
 #
 
 # Keep the output quiet by default.
@@ -30,7 +30,7 @@ FPIC =
 CC = gcc
 endif
 
-all: md5.o md5.so
+all: emyg_dtoa.o emyg_dtoa.so
 
 %.o  : %.c
 	$(Q)$(CC)         -c $(CFLAGS) $<

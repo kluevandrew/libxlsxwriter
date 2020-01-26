@@ -47,6 +47,13 @@
 #           during configuration. This may produce bugs while cross-
 #           compiling or using MinGW/MSYS.
 #
+#       USE_STANDARD_DOUBLE
+#           Use the standard dtoa() function in sprintf() instead of the third
+#           party emyg_dtoa() (default off). The emyg_dtoa() library is used
+#           to avoid issue with different locale settings. To enable the
+#           standard dtoa, pass `-DUSE_STANDARD_DOUBLE=ON` during
+#           configuration.
+#
 #       USE_NO_MD5
 #           Compile without third party MD5 support. This will turn off the
 #           functionality of avoiding duplicate image files in the output xlsx
@@ -117,6 +124,7 @@ option(BUILD_TESTS "Build libxlsxwriter tests" OFF)
 option(BUILD_EXAMPLES "Build libxlsxwriter examples" OFF)
 option(USE_SYSTEM_MINIZIP "Use system minizip installation" OFF)
 option(USE_STANDARD_TMPFILE "Use the C standard library's tmpfile()" OFF)
+option(USE_STANDARD_DOUBLE "Use the C standard library's dtoa()" OFF)
 option(USE_NO_MD5 "Build libxlsxwriter without third party MD5 lib" OFF)
 option(IOAPI_NO_64 "Disable 64-bit filesystem support" OFF)
 
@@ -140,6 +148,10 @@ endif()
 
 if(USE_STANDARD_TMPFILE)
     list(APPEND LXW_PRIVATE_COMPILE_DEFINITIONS USE_STANDARD_TMPFILE)
+endif()
+
+if(USE_STANDARD_DOUBLE)
+    list(APPEND LXW_PRIVATE_COMPILE_DEFINITIONS USE_STANDARD_DOUBLE)
 endif()
 
 if(USE_NO_MD5)
@@ -220,6 +232,10 @@ endif()
 
 if (NOT USE_STANDARD_TMPFILE)
     list(APPEND LXW_SOURCES third_party/tmpfileplus/tmpfileplus.c)
+endif()
+
+if (NOT USE_STANDARD_DOUBLE)
+    list(APPEND LXW_SOURCES third_party/dtoa/emyg_dtoa.c)
 endif()
 
 if (NOT USE_NO_MD5)

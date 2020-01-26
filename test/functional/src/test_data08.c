@@ -13,7 +13,7 @@
 int main() {
 
     /* Test that the module works if the locale is changed. */
-#ifdef USE_DOUBLE_FUNCTION
+#ifndef USE_STANDARD_DOUBLE
     setlocale(LC_NUMERIC, "de_DE");
 #endif
 

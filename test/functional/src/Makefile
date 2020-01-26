@@ -31,9 +31,9 @@ LIBS   += -lminizip
 CFLAGS += -DUSE_SYSTEM_MINIZIP
 endif
 
-# Use a user-defined double number formatting function.
-ifdef USE_DOUBLE_FUNCTION
-CFLAGS += -DUSE_DOUBLE_FUNCTION
+# Use standard/C dtoa() in sprintf.
+ifdef USE_STANDARD_DOUBLE
+CFLAGS += -DUSE_STANDARD_DOUBLE
 endif
 
 all : $(LIBXLSXWRITER) $(EXES)

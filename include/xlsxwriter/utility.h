@@ -193,9 +193,11 @@ void lxw_str_tolower(char *str);
 FILE *lxw_tmpfile(char *tmpdir);
 FILE *lxw_fopen(const char *filename, const char *mode);
 
-/* Use a user defined function to format doubles in sprintf or else a simple
- * macro (the default). */
-#ifdef USE_DOUBLE_FUNCTION
+/* Use the third party dtoa function to avoid locale issues with sprintf
+ * double formatting. Otherwise we use a simple macro that falls back to the
+ * default sprintf.
+ */
+#ifndef USE_STANDARD_DOUBLE
 int lxw_sprintf_dbl(char *data, double number);
 #else
 #define lxw_sprintf_dbl(data, number) \

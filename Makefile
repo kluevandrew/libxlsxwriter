@@ -27,6 +27,9 @@ endif
 ifndef USE_STANDARD_TMPFILE
 	$(Q)$(MAKE) -C third_party/tmpfileplus
 endif
+ifndef USE_STANDARD_DOUBLE
+	$(Q)$(MAKE) -C third_party/dtoa
+endif
 ifndef USE_NO_MD5
 	$(Q)$(MAKE) -C third_party/md5
 endif
@@ -51,6 +54,9 @@ ifndef USE_SYSTEM_MINIZIP
 endif
 ifndef USE_STANDARD_TMPFILE
 	$(Q)$(MAKE) clean -C third_party/tmpfileplus
+endif
+ifndef USE_STANDARD_DOUBLE
+	$(Q)$(MAKE) clean -C third_party/dtoa
 endif
 ifndef USE_NO_MD5
 	$(Q)$(MAKE) clean -C third_party/md5
@@ -78,6 +84,9 @@ ifndef USE_SYSTEM_MINIZIP
 endif
 ifndef USE_STANDARD_TMPFILE
 	$(Q)$(MAKE) -C third_party/tmpfileplus
+endif
+ifndef USE_STANDARD_DOUBLE
+	$(Q)$(MAKE) -C third_party/dtoa
 endif
 ifndef USE_NO_MD5
 	$(Q)$(MAKE) -C third_party/md5
@@ -146,6 +155,9 @@ endif
 ifndef USE_STANDARD_TMPFILE
 	$(Q)$(MAKE) -C third_party/tmpfileplus
 endif
+ifndef USE_STANDARD_DOUBLE
+	$(Q)$(MAKE) -C third_party/dtoa
+endif
 ifndef USE_NO_MD5
 	$(Q)$(MAKE) -C third_party/md5
 endif
@@ -165,6 +177,9 @@ ifndef USE_SYSTEM_MINIZIP
 endif
 ifndef USE_STANDARD_TMPFILE
 	$(Q)$(MAKE) -C third_party/tmpfileplus
+endif
+ifndef USE_STANDARD_DOUBLE
+	$(Q)$(MAKE) -C third_party/dtoa
 endif
 ifndef USE_NO_MD5
 	$(Q)$(MAKE) -C third_party/md5
