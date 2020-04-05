@@ -92,7 +92,7 @@ int main() {
                            "Enter an integer not between 1 and 10 (using cell references)",
                            NULL);
 
-    data_validation->validate        = LXW_VALIDATION_TYPE_INTEGER;
+    data_validation->validate        = LXW_VALIDATION_TYPE_INTEGER_FORMULA;
     data_validation->criteria        = LXW_VALIDATION_CRITERIA_NOT_BETWEEN;
     data_validation->minimum_formula = "=E3";
     data_validation->maximum_formula = "=F3";
